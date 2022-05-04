@@ -15,9 +15,6 @@ docker run -v $PWD/vpn_files:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig 
 # Generating CA certificate and we will have a private key belong to the PKI.
 docker run -v $PWD/vpn_files:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki
 
-# Run VPN server based on the configuration we did before
-docker run -v $PWD/vpn_files:/etc/openvpn -d -p 2998:1194/udp --cap-add=NET_ADMIN kylemanna/openvpn
-
 # Create a user that will be used to login to this OpenVPN server.
 docker run -v $PWD/vpn_files:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full yuval COMPLEXPASSWORD11
 
