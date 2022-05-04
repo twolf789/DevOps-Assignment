@@ -7,7 +7,7 @@ docker image pull kylemanna/openvpn:latest
 mkdir /vpn_files
 
 # Create network with bridge driver and custom subnet for the containers. This network will also be used as vpn site. (Explanation on the README file)
-docker network create --driver=bridge --subnet=192.168.5.0/29 yuvals_app_bridge
+docker network create --driver=bridge --subnet=192.168.5.0/30 yuvals_app_bridge
 
 # Generating the configuration files, and storing them in the dir we created (using bind mount). Also stating our custom bridge network.
 docker run -v $PWD/vpn_files:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig -u udp://192.168.5.0:2998
