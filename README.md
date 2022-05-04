@@ -9,3 +9,13 @@ Use "main_script.sh" in anacron, to make it run upon startup of the Ubuntu machi
   
 
   
+
+Why I chose this network settings:
+  - Custom bridge driver reason:
+  - Subnet reason: 
+
+Three reasons for this build:
+  1.
+  2.
+  3.
+  
