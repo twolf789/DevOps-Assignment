@@ -1,7 +1,8 @@
 # DevOps-Assignment
 
 Prerequisites:
-  1. Please run the script "docker_install.sh", *enter your username as a positional argument* (Execute the script as root, on Debian Linux machine).
+(Execute the scripts as root, on Debian Linux machine).
+  1. Please run the script "docker_install.sh".
   2. Next, run the "environment.sh" - it will create the network that will be used as the OpenVPN site and also as the containers network. It also creates all the
      configuration the VPN server need.
   3. Last thing you need to do before you create anacron job for the main_script.sh - run the "forward_traffic.sh" script to create the iptables rules.
