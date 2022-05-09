@@ -10,13 +10,13 @@ mkdir /vpn_files
 docker network create --driver=bridge --subnet=192.168.5.0/29 yuvals_app_bridge
 
 # Generating the configuration files, and storing them in the dir we created (using bind mount). Also stating our custom bridge network.
-docker run -v $PWD/vpn_files:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig -u udp://192.168.5.0:2998
+docker run -v /vpn_files:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig -u udp://192.168.5.0:2998
 
 # Generating CA certificate and we will have a private key belong to the PKI.
-docker run -v $PWD/vpn_files:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki
+docker run -v /vpn_files:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki
 
 # Create a user that will be used to login to this OpenVPN server.
-docker run -v $PWD/vpn_files:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full yuval COMPLEXPASSWORD11
+docker run -v /vpn_files:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full yuval COMPLEXPASSWORD11
 
 # Create a profile file that has all the connection information included in it
-docker run -v $PWD/vpn_files:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient yuval > yuval.ovpn
+docker run -v /vpn_files:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient yuval > yuval.ovpn
