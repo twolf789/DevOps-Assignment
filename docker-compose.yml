@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  container1_vpnserver:
+    image: kylemanna/openvpn
+    ports:
+      - "2998:1194/udp"
+    volumes:
+      - /vpn_files:/etc/openvpn
+    cap_add:
+      - NET_ADMIN
+  container2:
+    image: nginx
+    ports:
+      - "1001:80"
+
+
+networks:
+  default:
+    external:
+      name: yuvals_app_bridge
